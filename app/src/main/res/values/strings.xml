@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Olympus Lightning</string>
+
+    <string name="id_fb">898531227870972</string>
+    <string name="client_fb">14f2f87a70e568b84c2f250f8587a18e</string>
+
+    <string name="credits">Credits %1$d</string>
+    <string name="lose">YOU LOSE</string>
+    <string name="good_game">Good game!</string>
+    <string name="spin">Spin</string>
+    <string name="return_btn">Return</string>
+    <string name="olympus_game">OLYMPUS GAME</string>
+    <string name="start">START</string>
+
+</resources>

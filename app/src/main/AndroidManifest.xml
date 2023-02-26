@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.abdula.pranabrea">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="com.google.android.gms.permission.AD_ID"/>
+
+    <application
+        android:name=".olympus_ui.OlympusApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher_round"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
+        android:theme="@style/Theme.OlympusLightning"
+        tools:targetApi="32">
+
+        <activity
+            android:name=".olympus_ui.web_view.OlympusWeb"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:windowSoftInputMode="adjustResize"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.facebook.sdk.ApplicationId"
+            android:value="@string/id_fb" />
+        <meta-data
+            android:name="com.facebook.sdk.ClientToken"
+            android:value="@string/client_fb" />
+        <meta-data
+            android:name="preloaded_fonts"
+            android:resource="@array/preloaded_fonts" />
+
+        <activity android:name=".olympus_game.SlotGameActivity"
+            android:exported="false" />
+
+        <activity android:name=".olympus_game.SlotStartGameActivity"
+            android:exported="false" />
+
+        <activity
+            android:name=".olympus_ui.loading.OlympusLoading"
+            android:exported="true"
+            android:theme="@style/Theme.OlympusLightning.Launcher" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>
