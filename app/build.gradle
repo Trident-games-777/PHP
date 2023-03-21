@@ -38,11 +38,6 @@ android {
 
 dependencies {
 
-    implementation project(path: ':fb_data')
-    implementation project(path: ':fb_naming_data')
-
-    implementation 'androidx.work:work-runtime-ktx:2.8.0'
-
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
 
     implementation "io.insert-koin:koin-core:3.2.0"
@@ -53,7 +48,9 @@ dependencies {
 
     implementation 'com.onesignal:OneSignal:[4.0.0, 4.99.99]'
     implementation 'com.facebook.android:facebook-android-sdk:14.1.1'
-    implementation 'tools.trident.apps:tridentconversion:1.0-beta'
+
+    api 'com.android.installreferrer:installreferrer:2.2'
+    api "org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.0"
 
     implementation 'com.google.android.gms:play-services-ads-identifier:18.0.1'
 

@@ -9,7 +9,6 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import com.abdula.pranabrea.databinding.OlympusWebViewBinding
 import com.abdula.pranabrea.olympus_game.SlotStartGameActivity
-import com.abdula.pranabrea.utils.OlympusParams
 import com.abdula.pranabrea.utils.goToStartGame
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -93,7 +92,7 @@ class OlympusWeb: AppCompatActivity() {
             super.onPageFinished(view, url)
             CookieManager.getInstance().flush()
             url?.let {
-                if (it == OlympusParams.ROOT) {
+                if (it == "https://olympuslightning.shop/") {
                     goToStartGame(SlotStartGameActivity())
                 } else {
                     vm.setLink(it)

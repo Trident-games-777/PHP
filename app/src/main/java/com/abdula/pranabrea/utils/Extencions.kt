@@ -20,3 +20,7 @@ fun Activity.goToGame(activity: Activity) {
     val i = Intent(this, activity::class.java)
     startActivity(i)
 }
+
+fun String.rootLink(): String {
+    return this.substringAfter("https://").substringBefore("/")
+}

@@ -15,5 +15,3 @@ dependencyResolutionManagement {
 }
 rootProject.name = "OlympusLightning"
 include ':app'
-include ':fb_data'
-include ':fb_naming_data'

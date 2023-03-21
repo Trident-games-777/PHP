@@ -4,13 +4,12 @@ import android.app.Application
 import android.content.Context
 import com.abdula.pranabrea.olympus_di.mainModule
 import com.abdula.pranabrea.olympus_di.olympusModule
-import com.abdula.pranabrea.utils.OlympusParams
+import com.abdula.pranabrea.utils.OlympusConstance
 import com.onesignal.OneSignal
 import org.koin.android.ext.koin.androidContext
 import org.koin.android.ext.koin.androidLogger
 import org.koin.core.context.startKoin
 import org.koin.core.logger.Level
-
 
 
 class OlympusApp : Application() {
@@ -26,7 +25,7 @@ class OlympusApp : Application() {
         }
 
         OneSignal.initWithContext(this)
-        OneSignal.setAppId(OlympusParams.ONE_SIGNAL_ID)
+        OneSignal.setAppId(OlympusConstance.ONE_SIGNAL_ID)
     }
 
     companion object {

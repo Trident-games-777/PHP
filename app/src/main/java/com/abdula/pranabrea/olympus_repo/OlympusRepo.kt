@@ -1,16 +1,11 @@
 package com.abdula.pranabrea.olympus_repo
 
-import android.net.Uri
-import com.abdula.pranabrea.fb_data.IFbData
-import com.abdula.pranabrea.fb_naming_data.IFbNamingData
 import com.abdula.pranabrea.olympus_data.ILocalLink
-import com.abdula.pranabrea.utils.OlympusParams
-import com.trident.media.helper.network.models.postmodel.ConversionDataObject
+import com.abdula.pranabrea.utils.OlympusConstance
+import com.abdula.pranabrea.utils.rootLink
 
 class OlympusRepo(
-    private val iLocalLink: ILocalLink,
-    private val iFbData: IFbData,
-    private val iFbNamingData: IFbNamingData
+    private val iLocalLink: ILocalLink
     ) : IOlympusRepo {
 
     override fun getLink(): String {
@@ -18,20 +13,12 @@ class OlympusRepo(
     }
 
     override fun writeLink(link: String) {
-        if (!link.contains(OlympusParams.ROOT)) {
+        if (!link.contains(OlympusConstance.BASE_LINK.rootLink())) {
             iLocalLink.writeLink(link)
         }
     }
 
     override fun isExistLinkFile(): Boolean {
         return iLocalLink.isExistLinkFile()
-    }
-
-    override suspend fun getFbData(): Uri? {
-        return iFbData.getFbData()
-    }
-
-    override suspend fun getFbNamingData(): ConversionDataObject? {
-        return iFbNamingData.getFbNamingData()
     }
 }
