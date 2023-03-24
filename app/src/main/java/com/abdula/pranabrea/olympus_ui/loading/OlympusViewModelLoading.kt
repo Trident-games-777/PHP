@@ -12,7 +12,9 @@ import com.abdula.pranabrea.olympus_repo.IOlympusRepo
 import com.abdula.pranabrea.olympus_ui.states.OlympusStates
 import com.abdula.pranabrea.utils.OlympusConstance
 import com.android.installreferrer.api.InstallReferrerClient
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 import org.json.JSONObject
 import java.net.URLEncoder
 import java.util.*
@@ -53,12 +55,16 @@ class OlympusViewModelLoading(private val iOlympusRepo: IOlympusRepo): ViewModel
             OlympusConstance.TIMESTAMP_KEY to timestamp,
             OlympusConstance.USER_AGENT_KEY to userAgent
         )
-        _state.value = OlympusStates(
-            loadedLink = OlympusConstance.BASE_LINK + URLEncoder.encode(
-                jsonString,
-                "UTF-8"
+        viewModelScope.launch(Dispatchers.Main.immediate) {
+            _state.value = OlympusStates(
+                loadedLink = OlympusConstance.BASE_LINK + withContext(Dispatchers.IO) {
+                    URLEncoder.encode(
+                        jsonString,
+                        "UTF-8"
+                    )
+                }
             )
-        )
+        }
     }
 
     private fun createJsonString(vararg params: Pair<String, Any>): String {
